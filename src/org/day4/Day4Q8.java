@@ -1,0 +1,28 @@
+package org.day4;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Day4Q8 {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\workplace\\eclipse-wrokspace\\Selenium\\Driver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+	
+		driver.get("http://adactinhotelapp.com/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		WebElement email = driver.findElement(By.id("username"));
+		email.sendKeys("Srini");
+		WebElement pass = driver.findElement(By.id("password"));
+		pass.sendKeys("12345678");
+		String email1 = email.getAttribute("value");
+		System.out.println(email1);
+		String pass1 = pass.getAttribute("value");
+		System.out.println(pass1);
+	}
+}
